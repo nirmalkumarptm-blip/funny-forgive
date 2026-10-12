@@ -33,7 +33,7 @@
   const GAMES = [
     { id: 1, icon: '🌡️', title: 'Kovam Meter Challenge', desc: 'Un kovam evlo-nu meter-la kaattu' },
     { id: 2, icon: '🏃', title: 'Nirmal-a Catch Pannu', desc: 'Odura Nirmal-a 5 dhadava pidi' },
-    { id: 3, icon: '🔐', title: 'Love Lock — Secret Code 143', desc: 'Secret code guess pannu' },
+    { id: 3, icon: '🔐', title: 'Love Lock — Secret Code', desc: 'Secret code guess pannu' },
     { id: 4, icon: '🚦', title: 'Red Flag-aa? Green Flag-aa?', desc: 'Relationship quiz, no blame' },
     { id: 5, icon: '🎟️', title: 'Scratch & Reveal', desc: '6 surprise cards open pannu' },
     { id: 6, icon: '🥊', title: 'Priya vs Nirmal — Love Battle', desc: 'Funny + sincere quiz battle' },
