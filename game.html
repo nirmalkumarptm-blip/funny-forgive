@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ta-Latn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100817">
+  <meta name="description" content="Priya × Nirmal — Oru Chinna Sorry. Nirmal, Priya-kkaaga create panna chinna game website.">
+  <title>Priya × Nirmal — Oru Chinna Sorry ❤️</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E">
+  <!-- Optional fonts: internet illaina kooda website nalla velai seiyum (fallback fonts irukku) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="intro">
+
+  <!-- Cinematic intro splash -->
+  <div id="splash" class="splash" role="status" aria-live="polite">
+    <div class="splash-heart" aria-hidden="true">💗</div>
+    <p class="splash-text">Oru nimisham, Priya…</p>
+    <div class="splash-bar" aria-hidden="true"><span></span></div>
+    <p class="splash-skip">Skip panna edhavadhu tap pannu</p>
+  </div>
+
+  <!-- Background: lights, stars, floating hearts -->
+  <div class="bg" aria-hidden="true">
+    <div class="bokeh b1"></div>
+    <div class="bokeh b2"></div>
+    <div class="bokeh b3"></div>
+    <div class="bokeh b4"></div>
+    <div id="stars" class="stars"></div>
+    <div id="hearts" class="hearts"></div>
+  </div>
+  <div id="confetti" class="confetti" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button type="button" class="brand" data-go="home" aria-label="Homepage-ku po">Priya × Nirmal <span aria-hidden="true">❤️</span></button>
+    <button type="button" id="musicBtn" class="music-btn" aria-pressed="false" aria-label="Background music on / off">♫ Music: Off</button>
+  </header>
+
+  <noscript>
+    <p class="noscript">Aiyo Priya! Indha website velai seiya JavaScript venum. Browser settings-la JavaScript-a on pannu, please.</p>
+  </noscript>
+
+  <main id="main">
+
+    <!-- ============ HOME ============ -->
+    <section class="view hero" data-view="home" aria-labelledby="home-title">
+      <p class="eyebrow">ORU CHINNA SORRY, ROMBA PERIYA LOVE</p>
+      <div class="heart-hero" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="heart-svg" focusable="false">
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffb3d4"/>
+              <stop offset=".5" stop-color="#ff3e8a"/>
+              <stop offset="1" stop-color="#b44bff"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#hg)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span class="ring r1"></span><span class="ring r2"></span>
+      </div>
+      <h1 id="home-title" tabindex="-1">Hey Priya, konjam pesalama?</h1>
+      <p class="lede">Indha website unakku sirippu vara, konjam tease panna, kadaisila en manasula irukkuradhai solla. Naan perfect illa… aana unna purinjukka innum nalla try panna ready-ah irukken.</p>
+      <p class="names" aria-label="Priya and Nirmal">PRIYA <span aria-hidden="true">×</span> NIRMAL</p>
+      <button type="button" id="startBtn" class="btn btn-primary btn-lg" data-go="games">Seri, game aadalaam 💞</button>
+      <p class="aside">Headphones optional… aana smile panna try pannalaam!</p>
+    </section>
+
+    <!-- ============ DASHBOARD ============ -->
+    <section class="view dashboard" data-view="games" hidden aria-labelledby="dash-title">
+      <header class="dash-head">
+        <p class="game-tag">Game dashboard</p>
+        <h2 id="dash-title" tabindex="-1">Priya, edhu venumnaalum aadu 🎮</h2>
+        <p class="game-help">10 games-um mudichadhum, Nirmal-oda special letter unlock aagum. Order-la aada vendiyadhu illa, un mood-ku pick pannu.</p>
+      </header>
+
+      <div class="progress glass">
+        <div class="progress-top">
+          <strong id="progressText">0/10 games mudichachu</strong>
+          <span id="progressPct" class="chip">0%</span>
+        </div>
+        <div id="progressBar" class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" aria-label="Games progress">
+          <div id="progressFill" class="bar-fill"></div>
+        </div>
+      </div>
+
+      <div id="gameGrid" class="tile-grid"></div>
+
+      <button type="button" id="letterTile" class="letter-tile" disabled aria-disabled="true">
+        <span class="letter-ico" aria-hidden="true">🔒</span>
+        <span class="tile-body">
+          <span class="tile-title">Nirmal-oda letter</span>
+          <span class="tile-desc" id="letterTileDesc">10 games-um mudinjadhum unlock aagum.</span>
+        </span>
+      </button>
+
+      <div class="dash-actions">
+        <button type="button" class="btn btn-ghost" data-go="home">🏠 Home-ku po</button>
+        <button type="button" id="resetBtn" class="btn btn-ghost">↺ Progress reset pannu</button>
+      </div>
+    </section>
+
+    <!-- ============ GAME 1 ============ -->
+    <section class="view game-view" id="game-1" data-view="game-1" data-game="1" hidden aria-labelledby="g1-title">
+      <header class="game-head">
+        <p class="game-tag">Game 1 / 10</p>
+        <h2 id="g1-title" tabindex="-1">Kovam Meter Challenge 🌡️</h2>
+        <p class="game-help">Slider-a nagathi, Nirmal mela un kovam evlo-nu sollu. Honest-ah sollu, chellam!</p>
+      </header>
+      <div class="panel glass">
+        <div class="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 200 118" aria-hidden="true" focusable="false">
+            <path d="M 20 100 A 80 80 0 0 1 180 100" class="gauge-track"/>
+            <path id="g1-arc" d="M 20 100 A 80 80 0 0 1 180 100" class="gauge-arc"/>
+            <line id="g1-needle" x1="100" y1="100" x2="100" y2="34" class="gauge-needle"/>
+            <circle cx="100" cy="100" r="7" class="gauge-hub"/>
+          </svg>
+          <div class="anger-emoji" id="g1-emoji" aria-hidden="true">😐</div>
+          <p class="anger-value"><span id="g1-value">50</span>% kovam</p>
+        </div>
+        <label for="g1-slider" class="sr-only">Kovam level, 0 mudhal 100 varai</label>
+        <input type="range" id="g1-slider" class="slider" min="0" max="100" step="1" value="50">
+        <div class="slider-scale" aria-hidden="true"><span>😊 0%</span><span>100% 🤬</span></div>
+        <button type="button" id="g1-result" class="btn btn-primary">En result paaru</button>
+        <div id="g1-out" class="result-box" hidden role="status">
+          <p id="g1-msg" class="result-main"></p>
+          <p class="result-sub">Comedy oru pakkam irukkattum, un feelings-ai purinjukkaradhu mukkiyam.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 2 ============ -->
+    <section class="view game-view" id="game-2" data-view="game-2" data-game="2" hidden aria-labelledby="g2-title">
+      <header class="game-head">
+        <p class="game-tag">Game 2 / 10</p>
+        <h2 id="g2-title" tabindex="-1">Nirmal-a Catch Pannu 🏃</h2>
+        <p class="game-help">Nirmal odikitte irukkaan! Button-a 5 dhadava pidichaa dhaan avan escape aaga mudiyaadhu. Avan tired aana pidikkalaam 😂</p>
+      </header>
+      <div class="panel glass">
+        <div class="catch-top">
+          <div class="catch-char" aria-hidden="true">🏃‍♂️</div>
+          <p id="g2-bubble" class="bubble" role="status">Nirmal: “Ennaala pidikka mudiyaadhu, Priya!”</p>
+        </div>
+        <p class="catch-count">Pidichadhu: <strong id="g2-count">0</strong>/5 <span id="g2-hearts" aria-hidden="true">🤍🤍🤍🤍🤍</span></p>
+        <div id="g2-arena" class="arena">
+          <button type="button" id="g2-btn" class="catch-btn">🏃‍♂️ Nirmal, inga vaa!</button>
+        </div>
+        <div id="g2-out" class="result-box win" hidden role="status">
+          <div class="win-emoji" aria-hidden="true">🏆</div>
+          <p class="result-main">HAHA! Kadaisila Nirmal-a catch pannitta! 😂 Escape aaga mudiyala. Seri, unna hurt pannadhukku sorry, Priya.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 3 ============ -->
+    <section class="view game-view" id="game-3" data-view="game-3" data-game="3" hidden aria-labelledby="g3-title">
+      <header class="game-head">
+        <p class="game-tag">Game 3 / 10</p>
+        <h2 id="g3-title" tabindex="-1">Love Lock — Secret Code 143 🔐</h2>
+        <p class="game-help">Indha lock-ku 3 digit code irukku. Sariyaa guess pannina, Nirmal-oda secret message open aagum!</p>
+      </header>
+      <div class="panel glass">
+        <div id="g3-lock" class="lock-wrap">
+          <svg class="lock" viewBox="0 0 120 140" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="lockg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffd58b"/>
+                <stop offset="1" stop-color="#ff6fae"/>
+              </linearGradient>
+            </defs>
+            <g class="shackle"><path d="M36 64 V44 a24 24 0 0 1 48 0 V64" fill="none" stroke="#d6a5ff" stroke-width="10" stroke-linecap="round"/></g>
+            <rect x="18" y="60" width="84" height="68" rx="16" fill="url(#lockg)"/>
+            <circle cx="60" cy="88" r="9" fill="#100817"/>
+            <rect x="56.5" y="92" width="7" height="20" rx="3" fill="#100817"/>
+          </svg>
+        </div>
+        <div class="code-row" role="group" aria-label="3 digit secret code">
+          <input class="code-digit" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" autocomplete="off" aria-label="Code digit 1">
+          <input class="code-digit" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" autocomplete="off" aria-label="Code digit 2">
+          <input class="code-digit" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" autocomplete="off" aria-label="Code digit 3">
+        </div>
+        <button type="button" id="g3-btn" class="btn btn-primary">Unlock pannalaam</button>
+        <p id="g3-hint" class="feedback" role="status"></p>
+        <div id="g3-secret" class="result-box secret" hidden role="status">
+          <div class="glow-heart" aria-hidden="true">💗</div>
+          <p class="result-main">1 = I, 4 = Love, 3 = You. Aana en heart-oda password eppovume Priya dhaan. ❤️</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 4 ============ -->
+    <section class="view game-view" id="game-4" data-view="game-4" data-game="4" hidden aria-labelledby="g4-title">
+      <header class="game-head">
+        <p class="game-tag">Game 4 / 10</p>
+        <h2 id="g4-title" tabindex="-1">Red Flag-aa? Green Flag-aa? 🚦</h2>
+        <p class="game-help">Oru situation varum. Adhu Red Flag-aa, illa Green Flag-aa-nu pick pannu. Sariyaa-thappaa-nu pressure illa, just pesalaam!</p>
+      </header>
+      <div class="panel glass">
+        <div class="q-meta"><span id="g4-step">Kelvi 1/5</span><span id="g4-score" class="chip">Score: 0</span></div>
+        <div class="q-bar" aria-hidden="true"><div id="g4-bar"></div></div>
+        <p class="q-text" id="g4-q" aria-live="polite"></p>
+        <div class="flag-row">
+          <button type="button" class="flag-btn red" data-flag="red"><span aria-hidden="true">🚩</span> Red Flag</button>
+          <button type="button" class="flag-btn green" data-flag="green"><span aria-hidden="true">💚</span> Green Flag</button>
+        </div>
+        <p id="g4-fb" class="feedback" role="status"></p>
+        <button type="button" id="g4-next" class="btn btn-primary" hidden>Adutha kelvi ▶</button>
+        <div id="g4-out" class="result-box" hidden role="status">
+          <p id="g4-final" class="result-big"></p>
+          <p class="result-main">Perfect-ah irukkuradhu mukkiyam illa. Oruvar feelings-ai innoruvar purinjukka try panradhu dhaan mukkiyam.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 5 ============ -->
+    <section class="view game-view" id="game-5" data-view="game-5" data-game="5" hidden aria-labelledby="g5-title">
+      <header class="game-head">
+        <p class="game-tag">Game 5 / 10</p>
+        <h2 id="g5-title" tabindex="-1">Scratch &amp; Reveal 🎟️</h2>
+        <p class="game-help">6 surprise cards irukku. Ovvoru card-aiyum tap pannina, ullae oru message olinjirukku. Ellaathaiyum open pannu!</p>
+      </header>
+      <div class="panel glass">
+        <p class="catch-count">Reveal aanadhu: <strong id="g5-count">0</strong>/6</p>
+        <div id="g5-grid" class="scratch-grid"></div>
+        <div id="g5-out" class="result-box" hidden role="status">
+          <p class="result-main">Ellaa surprises-um open aayiduchu! Indha 6 vishayamum manasaara solradhu dhaan, Priya. 💖</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 6 ============ -->
+    <section class="view game-view" id="game-6" data-view="game-6" data-game="6" hidden aria-labelledby="g6-title">
+      <header class="game-head">
+        <p class="game-tag">Game 6 / 10</p>
+        <h2 id="g6-title" tabindex="-1">Priya vs Nirmal — Love Battle 🥊</h2>
+        <p class="game-help">Love, communication, Nirmal-oda comedy — ellaam kalandha quiz battle. Sariyaana answer-a pick pannu!</p>
+      </header>
+      <div class="panel glass">
+        <div class="q-meta"><span id="g6-step">Round 1/6</span><span id="g6-score" class="chip">Priya: 0 pts</span></div>
+        <div class="q-bar" aria-hidden="true"><div id="g6-bar"></div></div>
+        <p class="q-text" id="g6-q" aria-live="polite"></p>
+        <div id="g6-options" class="option-list"></div>
+        <p id="g6-fb" class="feedback" role="status"></p>
+        <button type="button" id="g6-next" class="btn btn-primary" hidden>Adutha round ▶</button>
+        <div id="g6-out" class="result-box" hidden role="status">
+          <p id="g6-title-out" class="result-big"></p>
+          <p id="g6-final" class="result-main"></p>
+          <p class="result-sub">Real-life-la win panradha vida, rendu perum purinjukkaradhu mukkiyam.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 7 ============ -->
+    <section class="view game-view" id="game-7" data-view="game-7" data-game="7" hidden aria-labelledby="g7-title">
+      <header class="game-head">
+        <p class="game-tag">Game 7 / 10</p>
+        <h2 id="g7-title" tabindex="-1">Spin the Love Wheel 🎡</h2>
+        <p class="game-help">Wheel-a spin pannu. Pointer nikkura segment-la enna irukko, adhu dhaan un reward! Evlo dhadava venumnaalum spin pannalaam.</p>
+      </header>
+      <div class="panel glass">
+        <div class="wheel-wrap">
+          <div class="wheel-pointer" aria-hidden="true"></div>
+          <canvas id="g7-canvas" class="wheel" width="600" height="600" aria-label="Love wheel"></canvas>
+          <div class="wheel-hub" aria-hidden="true">💗</div>
+        </div>
+        <button type="button" id="g7-btn" class="btn btn-primary">Spin pannalaam!</button>
+        <div id="g7-out" class="result-box" hidden role="status" aria-live="polite">
+          <p id="g7-title-out" class="result-big"></p>
+          <p id="g7-msg" class="result-main"></p>
+        </div>
+        <p id="g7-count" class="feedback"></p>
+      </div>
+    </section>
+
+    <!-- ============ GAME 8 ============ -->
+    <section class="view game-view" id="game-8" data-view="game-8" data-game="8" hidden aria-labelledby="g8-title">
+      <header class="game-head">
+        <p class="game-tag">Game 8 / 10</p>
+        <h2 id="g8-title" tabindex="-1">Find My Hidden Love 🔎</h2>
+        <p class="game-help">Indha romantic night scene-la 5 hearts olinjirukku. Ovvoru object-aiyum tap pannitu paaru. Thappaana edathula clue kidaikkum!</p>
+      </header>
+      <div class="panel glass">
+        <p class="catch-count" id="g8-count">Hearts kandupidichadhu: 0/5</p>
+        <div id="g8-grid" class="hunt-grid"></div>
+        <p id="g8-fb" class="feedback" role="status"></p>
+        <ul id="g8-found" class="found-list" aria-label="Kandupidicha hearts"></ul>
+        <div id="g8-out" class="result-box" hidden role="status">
+          <p class="result-main">Indha hearts ellame special. Aana un feelings-ai respect panradhu dhaan romba mukkiyam.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 9 ============ -->
+    <section class="view game-view" id="game-9" data-view="game-9" data-game="9" hidden aria-labelledby="g9-title">
+      <header class="game-head">
+        <p class="game-tag">Game 9 / 10</p>
+        <h2 id="g9-title" tabindex="-1">Memory Match Challenge 🃏</h2>
+        <p class="game-help">Card-a flip pannu, adhe maadhiri irukkura pair-a kandupidi. Oru neram-la rendu card dhaan open aagum.</p>
+      </header>
+      <div class="panel glass">
+        <div class="mem-stats">
+          <span class="chip">Pairs: <strong id="g9-pairs">0</strong>/4</span>
+          <span class="chip">Moves: <strong id="g9-moves">0</strong></span>
+          <span class="chip">Time: <strong id="g9-time">0:00</strong></span>
+        </div>
+        <div id="g9-grid" class="mem-grid"></div>
+        <p id="g9-fb" class="feedback" role="status"></p>
+        <div id="g9-out" class="result-box" hidden role="status">
+          <p id="g9-final" class="result-big"></p>
+          <p class="result-main">Namma memories special dhaan. Misunderstanding vandhaalum pesi purinjukittu sari pannalaam.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GAME 10 ============ -->
+    <section class="view game-view" id="game-10" data-view="game-10" data-game="10" hidden aria-labelledby="g10-title">
+      <header class="game-head">
+        <p class="game-tag">Game 10 / 10 — Grand finale</p>
+        <h2 id="g10-title" tabindex="-1">Win a Hug — Claw Machine 🧸</h2>
+        <p class="game-help">Claw-a left / right nagathi, prize mela nirutthi “Catch prize!” nokku. Glow aagura special prize dhaan jackpot!</p>
+      </header>
+      <div class="panel glass">
+        <div class="cabinet">
+          <div class="marquee" aria-hidden="true">✨ WIN A HUG ✨</div>
+          <div id="g10-stage" class="claw-stage">
+            <div class="claw-rail" aria-hidden="true"></div>
+            <div id="g10-claw" class="claw" aria-hidden="true">
+              <div class="claw-cable"></div>
+              <svg class="claw-head" viewBox="0 0 60 52" focusable="false">
+                <rect x="22" y="0" width="16" height="12" rx="4" fill="#d6a5ff"/>
+                <g class="arm arm-l"><path d="M30 12 C12 14 6 30 14 46" fill="none" stroke="#ffd58b" stroke-width="5" stroke-linecap="round"/></g>
+                <g class="arm arm-r"><path d="M30 12 C48 14 54 30 46 46" fill="none" stroke="#ffd58b" stroke-width="5" stroke-linecap="round"/></g>
+              </svg>
+              <div id="g10-held" class="claw-held" aria-hidden="true"></div>
+            </div>
+            <div id="g10-prizes" class="claw-prizes"></div>
+          </div>
+          <div class="claw-controls">
+            <button type="button" id="g10-left" class="btn btn-ghost ctrl" aria-label="Claw-a left-ku nagathu">◀ Left</button>
+            <button type="button" id="g10-go" class="btn btn-primary ctrl-main">Catch prize! 🧲</button>
+            <button type="button" id="g10-right" class="btn btn-ghost ctrl" aria-label="Claw-a right-ku nagathu">Right ▶</button>
+          </div>
+        </div>
+        <p id="g10-fb" class="feedback" role="status">Claw prize mela nikkudhaa-nu paathuttu “Catch prize!” nokku.</p>
+        <div class="tray" aria-live="polite">
+          <span class="tray-title">Un prizes:</span>
+          <span id="g10-tray" class="tray-items">innum onnum illa</span>
+        </div>
+        <div id="g10-out" class="result-box jackpot" hidden role="status">
+          <div class="glow-heart" aria-hidden="true">💌</div>
+          <p class="result-main">Special prize unlocked: Priya-kkaana Nirmal-oda sincere sorry letter! 💌</p>
+          <p id="g10-letter-note" class="result-sub"></p>
+          <button type="button" id="g10-letter-btn" class="btn btn-primary" data-go="letter" hidden>💌 Letter padikka</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LETTER ============ -->
+    <section class="view letter-view" data-view="letter" hidden aria-labelledby="letter-title">
+      <div class="letter-glow" aria-hidden="true"></div>
+      <h2 id="letter-title" tabindex="-1">Priya, idhu game illa… en manasula irundhu.</h2>
+      <article class="letter-card glass" aria-label="Nirmal-oda apology letter">
+        <p class="reveal" style="--i:0">Priya,</p>
+        <p class="reveal" style="--i:1">Idhai naan romba yosichu, manasula irundhu ezhudhuren.</p>
+        <p class="reveal" style="--i:2">Unna naan sariyaa purinjukkaama hurt pannitten. Nee thirumba thirumba en kitta vandhu sorry sonnapovum, naan en kovathai kaattitte irundhen. Andha nerathula un feelings-ai purinjukka vendiyadhu en poruppu. Aana naan adha sariyaa pannala. Adhukkaaga manasaara sorry.</p>
+        <p class="reveal" style="--i:3">Unna sirikka vaikka indha chinna website create pannirukken. Aana games vida mukkiyamana vishayam — un feelings enakku mukkiyam.</p>
+        <p class="reveal" style="--i:4">Naan thappu pannumbodhu adhai accept panni, un pecha nalla ketu, un feelings-ai purinjukka try panren. Kovathula react panradhukku badhila, calm-ah pesi misunderstanding-ai solve panna kathukka aasai paduren.</p>
+        <p class="reveal" style="--i:5">Nee udane enna mannichidanum-nu naan expect pannala. Unakku time venumna eduthuko. Un trust-ai words-la mattum illa, en actions-la kaattanum-nu enakku theriyum.</p>
+        <p class="reveal" style="--i:6">Un smile enakku romba special, Priya. Unna hurt pannadhukku sorry. Namma rendu perum open-ah pesi, oruthar feelings-ai innoruthar purinjukittu, innum nalla move forward pannalaam-nu aasai paduren.</p>
+        <p class="reveal" style="--i:7">Indha letter-ku udane bathil sollanum-nu avasaram illa. Nee ready-ah irukkumbodhu pesalaam.</p>
+        <p class="reveal letter-sign" style="--i:8">— Un Nirmal ❤️</p>
+      </article>
+
+      <div id="hugPanel" class="hug-panel" hidden role="status">
+        <div id="hugEmoji" class="hug-emoji" aria-hidden="true">🤗</div>
+        <p id="hugMsg" class="result-main"></p>
+      </div>
+
+      <div class="letter-actions">
+        <button type="button" id="hugBtn" class="btn btn-primary">Virtual hug venuma? 🤗</button>
+        <button type="button" class="btn btn-ghost" data-go="home">Beginning-ku thirumba po</button>
+        <button type="button" id="replayAllBtn" class="btn btn-ghost">🔁 Ellaa games-um thirumba aadalaam</button>
+        <button type="button" class="btn btn-ghost" data-go="games">◀ Games list</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-foot">Priya-kkaaga, Nirmal-oda manasula irundhu 💗</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
