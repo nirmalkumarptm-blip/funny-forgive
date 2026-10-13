@@ -147,7 +147,7 @@
   const music = (() => {
     const audio = new Audio('romantic-music.mp3');
     audio.loop = true;
-    audio.volume = 0.55;
+    audio.volume = 0.8;
     audio.preload = 'none';
 
     let fileBroken = false;
